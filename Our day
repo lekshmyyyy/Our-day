@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For My Kutta 💗</title>
+
+<style>
+body {
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+    text-align:center;
+    color:white;
+    overflow-x:hidden;
+}
+
+section{
+    padding:80px 20px;
+}
+
+h1{
+    font-size:40px;
+}
+
+.glass{
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    border-radius:20px;
+    padding:30px;
+    display:inline-block;
+    box-shadow:0 8px 32px rgba(0,0,0,0.2);
+}
+
+input{
+    padding:12px;
+    border:none;
+    border-radius:20px;
+    margin-top:15px;
+    text-align:center;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    margin-top:15px;
+    background:white;
+    color:#ff4da6;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+.hidden{
+    display:none;
+}
+
+img{
+    width:250px;
+    border-radius:20px;
+    margin:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.fade{
+    animation:fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+.heart{
+    position:fixed;
+    font-size:24px;
+    animation:float 5s linear infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(100vh);}
+    100%{transform:translateY(-10vh);}
+}
+
+/* FULL SCREEN SURPRISE */
+#finalScreen{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    z-index:999;
+    animation:fadeIn 2s ease-in;
+}
+
+#finalScreen h1{
+    font-size:50px;
+}
+
+.lyric{
+    margin-top:20px;
+    font-size:18px;
+    opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+
+<section id="entry">
+<h1>For My Kutta 💗</h1>
+<p>24 February 2025</p>
+
+<div class="glass">
+<p>Only my kutta can enter 🥺</p>
+<input type="text" id="nameInput" placeholder="Enter your name">
+<br>
+<button onclick="checkName()">Unlock Our Love</button>
+</div>
+</section>
+
+<section id="mainContent" class="hidden fade">
+
+<h1>Happy First Love Anniversary, Kutta ❤️</h1>
+<p>U're my favourite human ,kunjeee.</p>
+
+<h2>Our Love Story 🌸</h2>
+<p>The day we met, I didn’t know u’d become my whole world.</p>
+<p>Between our late ni8 talks, our laughs, our fights…</p>
+<p>I realised loving u was the easiest thing I’ve ever done , u made my lifee soooo beautiful.</p>
+
+<h2>Why I Love You 💌</h2>
+<p id="reasonText">Click below kutta 🥺</p>
+<button onclick="showReason()">Click Me</button>
+
+<h2>Our Memories 📸</h2>
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+
+<h2>My Promises 💍</h2>
+<div class="glass">
+<p>I promise I'll always support u.</p>
+<p>I promise I'll always loveee youuuu.</p>
+<p>I promise I'll try to make u the happiest.</p>
+</div>
+
+<br><br>
+<button onclick="finalSurprise()">Do You Know How Much I Love You?</button>
+
+<p style="margin-top:80px; font-size:12px; opacity:0.6;">
+With love, your kutta 💞
+</p>
+
+</section>
+
+<!-- FINAL FULL SCREEN -->
+<div id="finalScreen">
+    <h1>I LOVE YOU FOREVER, KUTTA 💗</h1>
+    <div class="lyric">
+        "oh darling, darling baby, you're so very fine,"
+    </div>
+</div>
+
+<!-- Hidden YouTube Audio -->
+<iframe id="music"
+    width="0"
+    height="0"
+    src=""
+    frameborder="0"
+    allow="autoplay">
+</iframe>
+
+<script>
+
+function checkName(){
+    var name=document.getElementById("nameInput").value;
+    if(name.toLowerCase()==="adhithya"){
+        document.getElementById("entry").style.display="none";
+        document.getElementById("mainContent").classList.remove("hidden");
+    }else{
+        alert("Only my kutta can enter 💕");
+    }
+}
+
+var reasons=[
+"I love ur smile.",
+"I love how safe & comfortable I'm with u.",
+"I love u being silly n adorableeeeee.",
+"I love ur warmth.",
+"I love how u became my home."
+];
+
+function showReason(){
+    var random=Math.floor(Math.random()*reasons.length);
+    document.getElementById("reasonText").innerText=reasons[random];
+}
+
+function finalSurprise(){
+    document.getElementById("finalScreen").style.display="flex";
+
+    // Start music after button click
+    document.getElementById("music").src =
+    "https://www.youtube.com/embed/nLnp0tpZ0ok?autoplay=1";
+    
+    setInterval(createHeart,300);
+}
+
+function createHeart(){
+    var heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerText="💗";
+    heart.style.left=Math.random()*100+"vw";
+    document.body.appendChild(heart);
+    setTimeout(()=>{heart.remove();},5000);
+}
+
+</script>
+
+</body>
+</html>
